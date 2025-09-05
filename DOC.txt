@@ -4,4 +4,4 @@ MUi est utilisé pour la stylisation
     1. Installation
         - npm create vite@latest TOP_cv_builder -- --template react
         - cd vers le dossier et npm install 
-        - 
+        - npm install @mui/material @emotion/react @emotion/styled
