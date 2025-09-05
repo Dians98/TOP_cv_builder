@@ -1,0 +1,7 @@
+Ce projet a été conçu dans le but d'apprendre React, notamment le concept de state et de props.
+MUi est utilisé pour la stylisation
+
+    1. Installation
+        - npm create vite@latest TOP_cv_builder -- --template react
+        - cd vers le dossier et npm install 
+        - 
