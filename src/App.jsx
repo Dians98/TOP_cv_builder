@@ -17,8 +17,7 @@ export default function App() {
         year_start: "2021",
         year_end: "2022",
         degree: "Licence Professionnelle en Humanités Numériques",
-        university:
-          "Université Des Mascareignes – Pamplemousses - Mauritius",
+        university: "Université Des Mascareignes – Pamplemousses - Mauritius",
       },
       {
         year_start: "2019",
@@ -54,7 +53,14 @@ export default function App() {
           {/* CV Preview */}
           <Box
             className="cv_preview"
-            sx={{ display: "flex", flexDirection: "column", gap: "2rem" }}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "2rem",
+              borderRadius: "1rem",
+              padding: "2rem",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            }}
           >
             <Cv_header resume={resume} />
             <Formations resume={resume} />
