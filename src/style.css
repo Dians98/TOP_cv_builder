@@ -1,0 +1,25 @@
+@import "modern-css-reset";
+
+/* Styles globaux supplémentaires */
+* {
+  box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+  }
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  background-color: white;
+  color: black;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.bold{
+    font-weight: 700;
+}
