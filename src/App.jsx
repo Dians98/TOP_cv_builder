@@ -6,13 +6,16 @@ import Formations from "./components/Cv_preview/Formations";
 import PersonalDetails from "./components/cv_builder_form/PersonalDetails";
 
 export default function App() {
+  /**Creation de l'objet resume par defaut */
   const [resume, setResume] = useState({
+    /**personal details sous forme d'objet */
     personal_details: {
       full_name: "Diano ANDRIANTSALAMA",
       position: "Junior Developer",
       email: "diano.faniry@gmail.com",
       phone: "+230 55198539",
     },
+    /**formation sous forme de tableau car on va iterer */
     formations: [
       {
         year_start: "2021",
@@ -36,9 +39,24 @@ export default function App() {
     ],
   });
 
+  /**fonction pour appelé quand le personal details changent */
   const handlePersonalDetailsChange = (updatedPersonalDetails) => {
+    /**
+     * setCount(prev => prev + 1); 
+     * Ici prev est l’ancienne valeur de count.
+     */
     setResume((prev) => ({
+      /**Toujours copier la valeur avant de modifier pour UN OBJET */
       ...prev,
+      /**
+       * EX2 : 
+                const updates = { age: 31 };
+                const merged = { ...person, ...updates };
+
+                console.log(merged);
+                // { name: "John", age: 31 }
+
+       */
       personal_details: {
         ...prev.personal_details, // garde les autres champs
         ...updatedPersonalDetails,
@@ -53,12 +71,12 @@ export default function App() {
           className="app"
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", md: "row" }, // column sur mobile, row sur desktop
-            gap: 4, // espace entre les colonnes
-            p: 2, // padding intérieur
+            flexDirection: { xs: "column", md: "row" }, 
+            gap: 4, 
+            p: 2, 
           }}
         >
-          {/* Form Builder */}
+          
           <Box
             className="form_builder"
             sx={{
