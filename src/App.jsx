@@ -42,7 +42,7 @@ export default function App() {
   /**fonction appelée quand le personal details changent */
   const handlePersonalDetailsChange = (updatedPersonalDetails) => {
     /**
-     * setCount(prev => prev + 1); 
+     * setCount(prev => prev + 1);
      * Ici prev est l’ancienne valeur de count.
      */
     setResume((prev) => ({
@@ -71,12 +71,11 @@ export default function App() {
           className="app"
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", md: "row" }, 
-            gap: 4, 
-            p: 2, 
+            flexDirection: { xs: "column", md: "row" },
+            gap: 4,
+            p: 2,
           }}
         >
-          
           <Box
             className="form_builder"
             sx={{
