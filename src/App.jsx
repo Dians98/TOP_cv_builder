@@ -39,7 +39,7 @@ export default function App() {
     ],
   });
 
-  /**fonction pour appelé quand le personal details changent */
+  /**fonction appelée quand le personal details changent */
   const handlePersonalDetailsChange = (updatedPersonalDetails) => {
     /**
      * setCount(prev => prev + 1); 
