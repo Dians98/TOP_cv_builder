@@ -2,8 +2,11 @@ import { useState } from "react";
 import Cv_header from "./components/cv_preview/Cv_header";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
-import Formations from "./components/Cv_preview/Formations";
+import CvFormations from "./components/Cv_preview/CvFormations";
 import PersonalDetails from "./components/cv_builder_form/PersonalDetails";
+import Formations from "./components/Cv_builder_form/Formations";
+import CvApropos from "./components/Cv_preview/CvAPropos";
+import APropos from "./components/Cv_builder_form/APropos";
 
 export default function App() {
   /**Creation de l'objet resume par defaut */
@@ -15,6 +18,8 @@ export default function App() {
       email: "diano.faniry@gmail.com",
       phone: "+230 55198539",
     },
+    aPropos:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor. ",
     /**formation sous forme de tableau car on va iterer */
     formations: [
       {
@@ -64,6 +69,31 @@ export default function App() {
     }));
   };
 
+  const handleAProposChange = (updatedAPropos) => {
+    setResume((prev) => ({
+      ...prev,
+      aPropos: updatedAPropos,
+    }));
+  };
+
+  const handleFormationsChange = (updatedFormation, index) => {
+    setResume((prev) => ({
+      ...prev,
+      /**N'OUBLIE PAS QUE MAP PARCOURE TOUT LE TABLEAU ET CREE UN NOUVEAU TABLEAU
+       * DONC ICI, ON IDENTIFIE OU EST CE QUE CA A CHANGE AVEC LA IF DE LINDEX
+       * SI ON LE REPERE ON LE CHANGE
+       * SINON ON MET LANCIEN VALEUR
+       */
+      formations: prev.formations.map((f, i) => {
+        if (index === i) {
+          return updatedFormation;
+        } else {
+          return f;
+        }
+      }),
+    }));
+  };
+
   return (
     <>
       <Container maxWidth="lg">
@@ -80,12 +110,19 @@ export default function App() {
             className="form_builder"
             sx={{
               display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
               width: "35%",
             }}
           >
             <PersonalDetails
               personal_details={resume.personal_details}
               onChange={handlePersonalDetailsChange}
+            />
+            <APropos aPropos={resume.aPropos} onChange={handleAProposChange} />
+            <Formations
+              formations={resume.formations}
+              onChange={handleFormationsChange}
             />
           </Box>
 
@@ -102,7 +139,8 @@ export default function App() {
             }}
           >
             <Cv_header resume={resume} />
-            <Formations resume={resume} />
+            <CvApropos aPropos={resume.aPropos} />
+            <CvFormations resume={resume} />
           </Box>
         </Box>
       </Container>

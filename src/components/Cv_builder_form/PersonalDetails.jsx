@@ -1,7 +1,7 @@
 import { Box, TextField } from "@mui/material";
 import Input from "./Input/Input";
 import Typography from "@mui/material/Typography";
-import Person2RoundedIcon from '@mui/icons-material/Person2Rounded';
+import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 
 export default function PersonalDetails({ personal_details, onChange }) {
   const labels = {
@@ -30,7 +30,7 @@ export default function PersonalDetails({ personal_details, onChange }) {
           gap: "1rem",
 
         }}>
-          <Person2RoundedIcon />
+          <Person2OutlinedIcon />
           Personal Details
         </Typography>
         {

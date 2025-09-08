@@ -3,7 +3,7 @@ import AvatarDefault from "../../assets/img/avatar_default.jpg";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-export default function Formations({ resume }) {
+export default function CvFormations({ resume }) {
   return (
     <>
       <Box className="cv_formations_container">
@@ -55,9 +55,9 @@ function FormationItem({ formation }) {
           width: "20%",
         }}
       >
-        <Typography variant="body2"> {formation.year_start}&nbsp;</Typography>
+        <Typography variant="body2" className="bold"> {formation.year_start}&nbsp;</Typography>
         {formation.year_end && (
-          <Typography variant="body2">-&nbsp;{formation.year_end}</Typography>
+          <Typography variant="body2" className="bold">-&nbsp;{formation.year_end}</Typography>
         )}
       </Box>
       <Box

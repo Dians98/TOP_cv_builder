@@ -1,12 +1,18 @@
 import { TextareaAutosize, TextField } from "@mui/material";
 
-export default function Input({ label, value, onChange }) {
+export default function InputTxtArea({ onChange, value, label }) {
   return (
     <TextField
       label={label}
       value={value}
       onChange={onChange}
+      multiline
+      rows={5}
+      fullWidth
       sx={{
+        "& .MuiInputBase-input": {
+          resize: "vertical", // permet juste d’agrandir en hauteur
+        },
         "& .MuiOutlinedInput-root": {
           backgroundColor: "white",
           "&.Mui-focused fieldset": {
@@ -17,11 +23,6 @@ export default function Input({ label, value, onChange }) {
           color: "#00E6BD", // couleur du label au focus
         },
       }}
-      variant="outlined"
-      fullWidth
-      margin="normal"
     />
   );
 }
-
-
