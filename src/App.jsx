@@ -78,7 +78,13 @@ export default function App() {
 
   const handleFormationsChange = (updatedFormation, index) => {
     setResume((prev) => ({
+      /**
+       * ON COPIE D'ABORD TOUS LES ELEMENTS, 
+       * ET A PARTIR DE CA ON VA MODIFIER LE TABLEAU
+       * TOUJOURS AVEC MAP QUAND IL S'AGIT DE TRAVAILLER AVEC LES TAEBLEAU SUR JS
+       */
       ...prev,
+      
       /**N'OUBLIE PAS QUE MAP PARCOURE TOUT LE TABLEAU ET CREE UN NOUVEAU TABLEAU
        * DONC ICI, ON IDENTIFIE OU EST CE QUE CA A CHANGE AVEC LA IF DE LINDEX
        * SI ON LE REPERE ON LE CHANGE
