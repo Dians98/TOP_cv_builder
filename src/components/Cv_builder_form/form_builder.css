@@ -1,0 +1,13 @@
+.iconColor{
+    color: #FFAD6D;
+    transition: transform 0.2s ease !important;
+    -webkit-transition: transform 0.2s ease !important;
+    -moz-transition: transform 0.2s ease !important;
+    -ms-transition: transform 0.2s ease !important;
+    -o-transition: transform 0.2s ease !important;
+}
+
+.iconColor:hover{
+    transform: scale(1.2);
+
+}

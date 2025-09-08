@@ -1,11 +1,12 @@
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
-import { Box , Button, Modal, Typography } from "@mui/material";
+import { Box, Button, Modal, Typography } from "@mui/material";
 import Input from "./Input/Input";
 import { useState } from "react";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
 import { TextField } from "@mui/material";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
-export default function Formations({ formations, onChange }) {
+export default function Formations({ formations, onChange, onDelete }) {
   return (
     <>
       <Box
@@ -32,12 +33,12 @@ export default function Formations({ formations, onChange }) {
           Formations
         </Typography>
       </Box>
-      <FormationList formations={formations} onChange={onChange} />
+      <FormationList formations={formations} onChange={onChange} onDelete={onDelete}/>
     </>
   );
 }
 
-function FormationList({ formations, onChange }) {
+function FormationList({ formations, onChange, onDelete }) {
   return (
     <>
       <Box
@@ -54,6 +55,7 @@ function FormationList({ formations, onChange }) {
             key={index}
             index={index}
             onChange={onChange}
+            onDelete={onDelete}
           />
         ))}
       </Box>
@@ -61,7 +63,7 @@ function FormationList({ formations, onChange }) {
   );
 }
 
-function FormationItem({ formation, onChange, index }) {
+function FormationItem({ formation, onChange, index, onDelete }) {
   const [IsModalOpened, setIsModalOpened] = useState(false);
 
   const handleOpen = () => {
@@ -72,14 +74,13 @@ function FormationItem({ formation, onChange, index }) {
     setIsModalOpened(false);
   };
 
+  
+
   return (
     <>
       <Box
         className="formation_item_container"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-        }}
+        
       >
         <Box
           className="formation_item"
@@ -88,10 +89,17 @@ function FormationItem({ formation, onChange, index }) {
             padding: "1rem",
             cursor: "pointer",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)",
+            display:"flex",
+            alignItems:"center",
+            justifyContent:"space-between"
           }}
           onClick={handleOpen}
         >
           <Typography variant="body2">{formation.degree}</Typography>
+          <DeleteOutlineOutlinedIcon className="iconColor" onClick={(e) => {
+            e.stopPropagation();
+            onDelete(index)
+          }}/>
         </Box>
         <FormationModal
           formation={formation}
@@ -105,15 +113,7 @@ function FormationItem({ formation, onChange, index }) {
   );
 }
 
-
-
-function FormationModal({
-  formation,
-  handleClose,
-  open,
-  onChange,
-  index,
-}) {
+function FormationModal({ formation, handleClose, open, onChange, index }) {
   const [modalFormation, setModalFormation] = useState({ ...formation });
 
   const handleInputChange = (updatedModalFormation) => {
@@ -241,4 +241,3 @@ function FormationModalInput({ label, value, onChange, name }) {
     />
   );
 }
-
