@@ -1,5 +1,5 @@
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
-import { Box, Button, Modal, Typography } from "@mui/material";
+import { Box, Button, Modal, Snackbar, Typography } from "@mui/material";
 import Input from "./Input/Input";
 import { useState } from "react";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
@@ -33,12 +33,27 @@ export default function Formations({ formations, onChange, onDelete }) {
           Formations
         </Typography>
       </Box>
-      <FormationList formations={formations} onChange={onChange} onDelete={onDelete}/>
+      <FormationList
+        formations={formations}
+        onChange={onChange}
+        onDelete={onDelete}
+      />
     </>
   );
 }
 
 function FormationList({ formations, onChange, onDelete }) {
+  const [DisplaySnackBar, setDisplaySnackBar] = useState(false);
+
+  const handleDeleteFormationItem = (index) => {
+    onDelete(index);
+    setDisplaySnackBar(true);
+  };
+
+  const handleHideSnackBar = () => {
+    setDisplaySnackBar(false);
+  };
+
   return (
     <>
       <Box
@@ -55,9 +70,15 @@ function FormationList({ formations, onChange, onDelete }) {
             key={index}
             index={index}
             onChange={onChange}
-            onDelete={onDelete}
+            onDelete={handleDeleteFormationItem}
           />
         ))}
+        <Snackbar
+          open={DisplaySnackBar}
+          autoHideDuration={1000}
+          onClose={handleHideSnackBar}
+          message="La formation a bien été suprimée"
+        />
       </Box>
     </>
   );
@@ -74,14 +95,9 @@ function FormationItem({ formation, onChange, index, onDelete }) {
     setIsModalOpened(false);
   };
 
-  
-
   return (
     <>
-      <Box
-        className="formation_item_container"
-        
-      >
+      <Box className="formation_item_container">
         <Box
           className="formation_item"
           sx={{
@@ -89,18 +105,22 @@ function FormationItem({ formation, onChange, index, onDelete }) {
             padding: "1rem",
             cursor: "pointer",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.25)",
-            display:"flex",
-            alignItems:"center",
-            justifyContent:"space-between"
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
           onClick={handleOpen}
         >
           <Typography variant="body2">{formation.degree}</Typography>
-          <DeleteOutlineOutlinedIcon className="iconColor" onClick={(e) => {
-            e.stopPropagation();
-            onDelete(index)
-          }}/>
+          <DeleteOutlineOutlinedIcon
+            className="iconColor"
+            onClick={(e) => {
+              e.stopPropagation();
+              onDelete(index);
+            }}
+          />
         </Box>
+
         <FormationModal
           formation={formation}
           open={IsModalOpened}

@@ -155,6 +155,7 @@ export default function App() {
               padding: "2rem",
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
               flex: 1,
+              
             }}
           >
             <Cv_header resume={resume} />

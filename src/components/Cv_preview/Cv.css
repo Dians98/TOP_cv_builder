@@ -1,14 +1,18 @@
+.cv_preview {
+  min-width: 600px; /* largeur minimale */
+  max-width: 100%; /* ne dépasse pas le parent */
+  width: 100%;
+}
+
 .cv_header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.cv_header_personal_details{
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    text-align: end;
+.cv_header_personal_details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: end;
 }
-
-
