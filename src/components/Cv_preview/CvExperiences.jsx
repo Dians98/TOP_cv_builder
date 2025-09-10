@@ -39,7 +39,8 @@ function CvExperiencesItem({ experience, index }) {
       <Box className="cv_experiences_item_company">
         <Box className="cv_experiences_item_company_date">
           <Typography variant="body2" className="bold">
-            {experience.year_start} - {experience.year_end}
+            {experience.year_start +
+              (experience.year_end ? " - " + experience.year_end : "")}
           </Typography>
         </Box>
         <Box className="cv_experiences_item_company_value">

@@ -47,16 +47,24 @@ export default function App() {
       {
         year_start: "2023",
         year_end: "Présent",
-        profil: "Développeur Junior",
-        company:"ANGE TECHNOLOGY Ltd",
+        profil: "Ingénieur logiciel",
+        company: "ANGE TECHNOLOGY Ltd",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
       },
       {
         year_start: "2022",
         year_end: "2023",
-        profil: "Consultant K2",
-        company:"AEROW ECM WORLD Ltd",
+        profil: "Analyste-développeur",
+        company: "AEROW ECM WORLD Ltd",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
+      },
+      {
+        year_start: "2022",
+        year_end: "",
+        profil: "Stagiaire",
+        company: "AEROW ECM WORLD Ltd",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
       },
@@ -154,7 +162,7 @@ export default function App() {
               width: "35%",
               overflowY: "auto",
               padding: "0 1rem 1rem",
-              maxHeight:"90vh"
+              maxHeight: "90vh",
             }}
           >
             <PersonalDetails
