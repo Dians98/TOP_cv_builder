@@ -7,6 +7,7 @@ import PersonalDetails from "./components/cv_builder_form/PersonalDetails";
 import Formations from "./components/Cv_builder_form/Formations";
 import CvApropos from "./components/Cv_preview/CvAPropos";
 import APropos from "./components/Cv_builder_form/APropos";
+import CvExperiences from "./components/Cv_preview/CvExperiences";
 
 export default function App() {
   /**Creation de l'objet resume par defaut */
@@ -40,6 +41,24 @@ export default function App() {
         degree: "Baccalauréat Série Scientifique",
         university:
           "Collège la Lumière Internationale – Antananarivo – Madagascar",
+      },
+    ],
+    experiences: [
+      {
+        year_start: "2023",
+        year_end: "Présent",
+        profil: "Développeur Junior",
+        company:"ANGE TECHNOLOGY Ltd",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
+      },
+      {
+        year_start: "2022",
+        year_end: "2023",
+        profil: "Consultant K2",
+        company:"AEROW ECM WORLD Ltd",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
       },
     ],
   });
@@ -122,6 +141,8 @@ export default function App() {
             flexDirection: { xs: "column", md: "row" },
             gap: 4,
             p: 2,
+
+            overflow: "hidden",
           }}
         >
           <Box
@@ -131,6 +152,9 @@ export default function App() {
               flexDirection: "column",
               gap: "1rem",
               width: "35%",
+              overflowY: "auto",
+              padding: "0 1rem 1rem",
+              maxHeight:"90vh"
             }}
           >
             <PersonalDetails
@@ -155,12 +179,13 @@ export default function App() {
               padding: "2rem",
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
               flex: 1,
-              
+              overflow: "hidden",
             }}
           >
             <Cv_header resume={resume} />
             <CvApropos aPropos={resume.aPropos} />
             <CvFormations resume={resume} />
+            <CvExperiences experiences={resume.experiences} />
           </Box>
         </Box>
       </Container>

@@ -1,13 +1,46 @@
-.iconColor{
-    color: #FFAD6D;
-    transition: transform 0.2s ease !important;
-    -webkit-transition: transform 0.2s ease !important;
-    -moz-transition: transform 0.2s ease !important;
-    -ms-transition: transform 0.2s ease !important;
-    -o-transition: transform 0.2s ease !important;
+.iconColor {
+  color: #ffad6d;
+  transition: transform 0.2s ease !important;
+  -webkit-transition: transform 0.2s ease !important;
+  -moz-transition: transform 0.2s ease !important;
+  -ms-transition: transform 0.2s ease !important;
+  -o-transition: transform 0.2s ease !important;
 }
 
-.iconColor:hover{
-    transform: scale(1.2);
+.iconColor:hover {
+  transform: scale(1.2);
+}
 
+.cv_experiences_list_container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cv_experiences_item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cv_experiences_item_company,
+.cv_experiences_item_profil,
+.cv_experiences_item_desc {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cv_experiences_item_company_date,
+.cv_experiences_item_profil_txt,
+.cv_experiences_item_desc_txt {
+  display: flex;
+  width: 20%;
+}
+
+.cv_experiences_item_desc_value {
+  display: flex;
+  flex: 1;
 }

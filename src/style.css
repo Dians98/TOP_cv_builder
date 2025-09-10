@@ -6,8 +6,8 @@
 }
 
 html {
-    font-size: 18px;
-  }
+  font-size: 18px;
+}
 
 body {
   font-family: "Inter", sans-serif;
@@ -20,6 +20,11 @@ body {
   padding: 2rem;
 }
 
-.bold{
-    font-weight: 700 !important;
+.bold {
+  font-weight: 700 !important;
+}
+
+.app {
+  display: flex; /* 2 colonnes */
+  min-height: 100vh;
 }
