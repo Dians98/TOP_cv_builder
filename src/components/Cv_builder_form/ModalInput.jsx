@@ -1,6 +1,18 @@
 import { TextField } from "@mui/material";
 
-export default function ModalInput({ label, value, onChange, name }) {
+export default function ModalInput({
+  label,
+  value,
+  onChange,
+  name,
+  type = "input",
+}) {
+  const txtFieldFields = {};
+
+  if (type == "txtfield") {
+    txtFieldFields.multiline = true;
+    txtFieldFields.rows = 4;
+  }
   return (
     <TextField
       label={label}
@@ -8,6 +20,7 @@ export default function ModalInput({ label, value, onChange, name }) {
       onChange={(e) => {
         onChange({ [name]: e.target.value });
       }}
+      {...txtFieldFields}
       sx={{
         "& .MuiOutlinedInput-root": {
           backgroundColor: "white",

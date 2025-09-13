@@ -6,7 +6,13 @@ import { TextField } from "@mui/material";
 import ModalInput from "./modalInput";
 import SaveBtnModal from "./SaveBtnModal";
 
-export default function ExperienceModal({ open, close, experience, onChange, index }) {
+export default function ExperienceModal({
+  open,
+  close,
+  experience,
+  onChange,
+  index,
+}) {
   const [modalExperience, setModalExperience] = useState({ ...experience });
 
   const handleExperienceInputChange = (updatedModalExperience) => {
@@ -41,21 +47,53 @@ export default function ExperienceModal({ open, close, experience, onChange, ind
           }}
           className="Formation_detail_modal_container"
         >
-          <ModalInput
-            label="Début"
-            value={modalExperience.year_start}
-            onChange={(updatedModalExperience) => {
-              handleExperienceInputChange(updatedModalExperience);
-            }}
-            name="year_start"
-          />
-
-          <SaveBtnModal
-            onChange={onChange}
-            modalObj={modalExperience}
-            index={index}
-            handleClose={close}
-          />
+          <Box className="experience_modal_year">
+            <ModalInput
+              label="Début"
+              value={modalExperience.year_start}
+              onChange={(updatedModalExperience) => {
+                handleExperienceInputChange(updatedModalExperience);
+              }}
+              name="year_start"
+            />
+            <ModalInput
+              label="Fin"
+              value={modalExperience.year_end}
+              onChange={(updatedModalExperience) => {
+                handleExperienceInputChange(updatedModalExperience);
+              }}
+              name="year_end"
+            />
+          </Box>
+          <Box className="experience_modal_position">
+            <ModalInput
+              label="Position"
+              value={modalExperience.profil}
+              onChange={(updatedModalExperience) => {
+                handleExperienceInputChange(updatedModalExperience);
+              }}
+              name="profil"
+            />
+          </Box>
+          <Box className="experience_modal_description">
+            <ModalInput
+              label="Description"
+              value={modalExperience.description}
+              onChange={(updatedModalExperience) => {
+                handleExperienceInputChange(updatedModalExperience);
+              }}
+              name="description"
+              type="txtfield"
+            />
+          </Box>
+          <Box>
+            <SaveBtnModal
+              onChange={onChange}
+              modalObj={modalExperience}
+              index={index}
+              handleClose={close}
+            />
+          </Box>
         </Box>
       </Modal>
     </>

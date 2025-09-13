@@ -44,3 +44,8 @@
   display: flex;
   flex: 1;
 }
+
+.experience_modal_year {
+  display: flex;
+  gap: 1rem;
+}
