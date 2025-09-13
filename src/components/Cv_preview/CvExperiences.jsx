@@ -27,7 +27,7 @@ function CvExperiencesList({ experiences }) {
   return (
     <Box className="cv_experiences_list_container">
       {experiences.map((experience, index) => (
-        <CvExperiencesItem experience={experience} index={index} />
+        <CvExperiencesItem experience={experience} index={index} key={index} />
       ))}
     </Box>
   );
