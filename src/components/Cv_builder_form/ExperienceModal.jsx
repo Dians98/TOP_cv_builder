@@ -3,8 +3,10 @@ import Input from "./Input/Input";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
 import { useState } from "react";
 import { TextField } from "@mui/material";
+import ModalInput from "./modalInput";
+import SaveBtnModal from "./SaveBtnModal";
 
-export default function ExperienceModal({ open, close, experience, onChange }) {
+export default function ExperienceModal({ open, close, experience, onChange, index }) {
   const [modalExperience, setModalExperience] = useState({ ...experience });
 
   const handleExperienceInputChange = (updatedModalExperience) => {
@@ -39,7 +41,7 @@ export default function ExperienceModal({ open, close, experience, onChange }) {
           }}
           className="Formation_detail_modal_container"
         >
-          <ExperienceModalInput
+          <ModalInput
             label="Début"
             value={modalExperience.year_start}
             onChange={(updatedModalExperience) => {
@@ -47,36 +49,15 @@ export default function ExperienceModal({ open, close, experience, onChange }) {
             }}
             name="year_start"
           />
+
+          <SaveBtnModal
+            onChange={onChange}
+            modalObj={modalExperience}
+            index={index}
+            handleClose={close}
+          />
         </Box>
       </Modal>
     </>
   );
 }
-
-function ExperienceModalInput({ label, value, onChange, name }) {
-  return (
-    <TextField
-      label={label}
-      value={value}
-      onChange={(e) => {
-        onChange({ [name]: e.target.value });
-      }}
-      sx={{
-        "& .MuiOutlinedInput-root": {
-          backgroundColor: "white",
-          "&.Mui-focused fieldset": {
-            borderColor: "#00E6BD", // couleur de la bordure au focus
-          },
-        },
-        "& label.Mui-focused": {
-          color: "#00E6BD", // couleur du label au focus
-        },
-      }}
-      variant="outlined"
-      fullWidth
-      margin="normal"
-    />
-  );
-}
-
-

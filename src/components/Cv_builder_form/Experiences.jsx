@@ -110,6 +110,7 @@ function ExperienceItem({ experience, index, onDelete, onChange }) {
         close={handleCloseExperienceModal}
         experience={experience}
         onChange={onChange}
+        index={index}
       />
     </>
   );

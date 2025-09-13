@@ -199,6 +199,7 @@ export default function App() {
             <Experiences
               experiences={resume.experiences}
               onDelete={handleExperienceDelete}
+              onChange={handleExperienceChange}
             />
           </Box>
 
