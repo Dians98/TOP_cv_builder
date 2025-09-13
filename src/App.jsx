@@ -8,6 +8,7 @@ import Formations from "./components/Cv_builder_form/Formations";
 import CvApropos from "./components/Cv_preview/CvAPropos";
 import APropos from "./components/Cv_builder_form/APropos";
 import CvExperiences from "./components/Cv_preview/CvExperiences";
+import Experiences from "./components/Cv_builder_form/Experiences";
 
 export default function App() {
   /**Creation de l'objet resume par defaut */
@@ -139,6 +140,13 @@ export default function App() {
     }));
   };
 
+  const handleExperienceDelete = (index) => {
+    setResume((prev) => ({
+      ...prev,
+      experiences: prev.experiences.filter((_, i) => i != index),
+    }));
+  };
+
   return (
     <>
       <Container maxWidth="lg">
@@ -174,6 +182,10 @@ export default function App() {
               formations={resume.formations}
               onChange={handleFormationsChange}
               onDelete={handleFormationDelete}
+            />
+            <Experiences
+              experiences={resume.experiences}
+              onDelete={handleExperienceDelete}
             />
           </Box>
 
