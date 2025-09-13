@@ -5,7 +5,8 @@ import { useState } from "react";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
 import { TextField } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-
+import SaveBtnModal from "./SaveBtnModal";
+import ModalInput from "./modalInput";
 export default function Formations({ formations, onChange, onDelete }) {
   return (
     <>
@@ -171,7 +172,7 @@ function FormationModal({ formation, handleClose, open, onChange, index }) {
             gap: "1rem",
           }}
         >
-          <FormationModalInput
+          <ModalInput
             name="year_start"
             label="De"
             value={modalFormation.year_start}
@@ -179,7 +180,7 @@ function FormationModal({ formation, handleClose, open, onChange, index }) {
               handleInputChange(updatedModalFormation)
             }
           />
-          <FormationModalInput
+          <ModalInput
             label="A"
             name="year_end"
             value={modalFormation.year_end}
@@ -188,7 +189,7 @@ function FormationModal({ formation, handleClose, open, onChange, index }) {
             }
           />
         </Box>
-        <FormationModalInput
+        <ModalInput
           label="Degree"
           name="degree"
           value={modalFormation.degree}
@@ -196,7 +197,7 @@ function FormationModal({ formation, handleClose, open, onChange, index }) {
             handleInputChange(updatedModalFormation)
           }
         />
-        <FormationModalInput
+        <ModalInput
           label="University"
           name="university"
           value={modalFormation.university}
@@ -204,9 +205,9 @@ function FormationModal({ formation, handleClose, open, onChange, index }) {
             handleInputChange(updatedModalFormation)
           }
         />
-        <SaveButtonModal
+        <SaveBtnModal
           onChange={onChange}
-          modalFormation={modalFormation}
+          modalObj={modalFormation}
           index={index}
           handleClose={handleClose}
         />
@@ -215,49 +216,4 @@ function FormationModal({ formation, handleClose, open, onChange, index }) {
   );
 }
 
-function SaveButtonModal({ onChange, modalFormation, index, handleClose }) {
-  return (
-    <Button
-      variant="outlined"
-      sx={{
-        color: "#00E6BD",
-        borderColor: "#00E6BD",
-        width: "5rem",
-        display: "flex",
-        gap: "0.25rem",
-      }}
-      onClick={() => {
-        onChange(modalFormation, index);
-        handleClose();
-      }}
-    >
-      <SaveAsIcon /> Save
-    </Button>
-  );
-}
 
-function FormationModalInput({ label, value, onChange, name }) {
-  return (
-    <TextField
-      label={label}
-      value={value}
-      onChange={(e) => {
-        onChange({ [name]: e.target.value });
-      }}
-      sx={{
-        "& .MuiOutlinedInput-root": {
-          backgroundColor: "white",
-          "&.Mui-focused fieldset": {
-            borderColor: "#00E6BD", // couleur de la bordure au focus
-          },
-        },
-        "& label.Mui-focused": {
-          color: "#00E6BD", // couleur du label au focus
-        },
-      }}
-      variant="outlined"
-      fullWidth
-      margin="normal"
-    />
-  );
-}

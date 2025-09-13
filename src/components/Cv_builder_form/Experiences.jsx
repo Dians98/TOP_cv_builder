@@ -7,7 +7,7 @@ import { TextField } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ExperienceModal from "./ExperienceModal";
 
-export default function Experiences({ experiences, onDelete }) {
+export default function Experiences({ experiences, onDelete, onChange }) {
   return (
     <>
       <Box
@@ -34,12 +34,16 @@ export default function Experiences({ experiences, onDelete }) {
           Experiences
         </Typography>
       </Box>
-      <ExperiencesList experiences={experiences} onDelete={onDelete} />
+      <ExperiencesList
+        experiences={experiences}
+        onDelete={onDelete}
+        onChange={onChange}
+      />
     </>
   );
 }
 
-function ExperiencesList({ experiences, onDelete }) {
+function ExperiencesList({ experiences, onDelete, onChange }) {
   return (
     <>
       <Box
@@ -56,6 +60,7 @@ function ExperiencesList({ experiences, onDelete }) {
             index={index}
             onDelete={onDelete}
             key={index}
+            onChange={onChange}
           />
         ))}
       </Box>
@@ -63,7 +68,7 @@ function ExperiencesList({ experiences, onDelete }) {
   );
 }
 
-function ExperienceItem({ experience, index, onDelete }) {
+function ExperienceItem({ experience, index, onDelete, onChange }) {
   const [openExperienceModal, setOpenExperienceModal] = useState(false);
 
   const handleOpenExperienceModal = () => {
@@ -103,6 +108,8 @@ function ExperienceItem({ experience, index, onDelete }) {
       <ExperienceModal
         open={openExperienceModal}
         close={handleCloseExperienceModal}
+        experience={experience}
+        onChange={onChange}
       />
     </>
   );

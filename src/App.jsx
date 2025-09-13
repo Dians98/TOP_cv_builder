@@ -140,6 +140,19 @@ export default function App() {
     }));
   };
 
+  const handleExperienceChange = (updatedExperience, index) => {
+    setResume((prev) => ({
+      ...prev,
+      experiences: prev.experiences.map((experience, i) => {
+        if (index == i) {
+          return updatedExperience;
+        } else {
+          return experience;
+        }
+      }),
+    }));
+  };
+
   const handleExperienceDelete = (index) => {
     setResume((prev) => ({
       ...prev,
@@ -170,7 +183,7 @@ export default function App() {
               width: "35%",
               overflowY: "auto",
               padding: "0 1rem 1rem",
-              maxHeight: "90vh",
+              //maxHeight: "100vh",
             }}
           >
             <PersonalDetails
@@ -205,7 +218,10 @@ export default function App() {
             <Cv_header resume={resume} />
             <CvApropos aPropos={resume.aPropos} />
             <CvFormations resume={resume} />
-            <CvExperiences experiences={resume.experiences} />
+            <CvExperiences
+              experiences={resume.experiences}
+              onChange={handleExperienceChange}
+            />
           </Box>
         </Box>
       </Container>
