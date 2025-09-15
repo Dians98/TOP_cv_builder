@@ -5,13 +5,14 @@ import { useState } from "react";
 import { TextField } from "@mui/material";
 
 import ModalInput from "./modalInput";
+import SaveBtnModal from "./SaveBtnModal";
+
 
 export default function FormationModal({
   formation,
   handleClose,
   open,
   onChange,
-  index,
 }) {
   const [modalFormation, setModalFormation] = useState({ ...formation });
 
@@ -83,16 +84,13 @@ export default function FormationModal({
             handleInputChange(updatedModalFormation)
           }
         />
-        <SaveButtonModal
+        <SaveBtnModal
           onChange={onChange}
           modalFormation={modalFormation}
-          index={index}
+          id={modalFormation.id}
           handleClose={handleClose}
         />
       </Box>
     </Modal>
   );
 }
-
-
-

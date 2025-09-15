@@ -113,7 +113,7 @@ export default function App() {
     }));
   };
 
-  const handleFormationsChange = (updatedFormation, index) => {
+  const handleFormationsChange = (updatedFormation, id) => {
     setResume((prev) => ({
       /**
        * ON COPIE D'ABORD TOUS LES ELEMENTS,
@@ -127,17 +127,17 @@ export default function App() {
        * SI ON LE REPERE ON LE CHANGE
        * SINON ON MET LANCIEN VALEUR
        */
-      formations: prev.formations.map((f, i) => {
-        if (index === i) {
+      formations: prev.formations.map((formation) => {
+        if (formation.id == id) {
           return updatedFormation;
         } else {
-          return f;
+          return formation;
         }
       }),
     }));
   };
 
-  const handleFormationDelete = (index) => {
+  const handleFormationDelete = (id) => {
     setResume((prev) => ({
       ...prev,
       /**
@@ -145,14 +145,14 @@ export default function App() {
        * pour dire que on pas besoin d'element, dans notre cas on ne va pas l'utiliser
        * on utilise "_" a la place
        */
-      formations: prev.formations.filter((_, i) => i !== index),
+      formations: prev.formations.filter((formation) => formation.id !== id),
     }));
   };
 
   const handleExperienceChange = (updatedExperience, id) => {
     setResume((prev) => ({
       ...prev,
-      experiences: prev.experiences.map((experience, i) => {
+      experiences: prev.experiences.map((experience) => {
         if (experience.id == id) {
           return updatedExperience;
         } else {

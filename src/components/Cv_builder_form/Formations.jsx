@@ -7,6 +7,8 @@ import { TextField } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import SaveBtnModal from "./SaveBtnModal";
 import ModalInput from "./modalInput";
+import FormationModal from "./FormationModal";
+
 export default function Formations({ formations, onChange, onDelete }) {
   return (
     <>
@@ -65,11 +67,10 @@ function FormationList({ formations, onChange, onDelete }) {
           gap: "0.5rem",
         }}
       >
-        {formations.map((formation, index) => (
+        {formations.map((formation) => (
           <FormationItem
             formation={formation}
-            key={index}
-            index={index}
+            key={formation.id}
             onChange={onChange}
             onDelete={handleDeleteFormationItem}
           />
@@ -85,7 +86,7 @@ function FormationList({ formations, onChange, onDelete }) {
   );
 }
 
-function FormationItem({ formation, onChange, index, onDelete }) {
+function FormationItem({ formation, onChange, onDelete }) {
   const [IsModalOpened, setIsModalOpened] = useState(false);
 
   const handleOpen = () => {
@@ -117,7 +118,7 @@ function FormationItem({ formation, onChange, index, onDelete }) {
             className="iconColor"
             onClick={(e) => {
               e.stopPropagation();
-              onDelete(index);
+              onDelete(formation.id);
             }}
           />
         </Box>
@@ -127,93 +128,8 @@ function FormationItem({ formation, onChange, index, onDelete }) {
           open={IsModalOpened}
           handleClose={handleClose}
           onChange={onChange}
-          index={index}
         />
       </Box>
     </>
   );
 }
-
-function FormationModal({ formation, handleClose, open, onChange, index }) {
-  const [modalFormation, setModalFormation] = useState({ ...formation });
-
-  const handleInputChange = (updatedModalFormation) => {
-    setModalFormation((prev) => ({ ...prev, ...updatedModalFormation }));
-  };
-
-  return (
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "50%",
-          backgroundColor: "white",
-          padding: "2rem 3rem",
-          borderRadius: "1rem",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-        }}
-        className="Formation_detail_modal_container"
-      >
-        <Typography variant="h5"> Formation Details</Typography>
-        <Box
-          className="Formation_detail_modal_container_date"
-          sx={{
-            display: "flex",
-            gap: "1rem",
-          }}
-        >
-          <ModalInput
-            name="year_start"
-            label="De"
-            value={modalFormation.year_start}
-            onChange={(updatedModalFormation) =>
-              handleInputChange(updatedModalFormation)
-            }
-          />
-          <ModalInput
-            label="A"
-            name="year_end"
-            value={modalFormation.year_end}
-            onChange={(updatedModalFormation) =>
-              handleInputChange(updatedModalFormation)
-            }
-          />
-        </Box>
-        <ModalInput
-          label="Degree"
-          name="degree"
-          value={modalFormation.degree}
-          onChange={(updatedModalFormation) =>
-            handleInputChange(updatedModalFormation)
-          }
-        />
-        <ModalInput
-          label="University"
-          name="university"
-          value={modalFormation.university}
-          onChange={(updatedModalFormation) =>
-            handleInputChange(updatedModalFormation)
-          }
-        />
-        <SaveBtnModal
-          onChange={onChange}
-          modalObj={modalFormation}
-          index={index}
-          handleClose={handleClose}
-        />
-      </Box>
-    </Modal>
-  );
-}
-
-
