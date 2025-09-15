@@ -72,6 +72,16 @@ export default function ExperienceModal({
               name="year_end"
             />
           </Box>
+          <Box className="experience_modal_company">
+            <ModalInput
+              label="Company"
+              value={modalExperience.company}
+              onChange={(updatedModalExperience) => {
+                handleExperienceInputChange(updatedModalExperience);
+              }}
+              name="company"
+            />
+          </Box>
           <Box className="experience_modal_position">
             <ModalInput
               label="Position"
