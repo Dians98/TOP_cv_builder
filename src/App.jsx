@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Cv_header from "./components/cv_preview/Cv_header";
+import Cv_header from "./components/Cv_preview/Cv_header";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import CvFormations from "./components/Cv_preview/CvFormations";
