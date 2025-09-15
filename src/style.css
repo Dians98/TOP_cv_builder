@@ -28,3 +28,7 @@ body {
   display: flex; /* 2 colonnes */
   min-height: 100vh;
 }
+
+.MuiTypography-root {
+  display: flex;
+}

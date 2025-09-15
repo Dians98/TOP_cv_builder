@@ -8,8 +8,9 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import SaveBtnModal from "./SaveBtnModal";
 import ModalInput from "./modalInput";
 import FormationModal from "./FormationModal";
+import AddField from "./AddField";
 
-export default function Formations({ formations, onChange, onDelete }) {
+export default function Formations({ formations, onChange, onDelete, onAdd }) {
   return (
     <>
       <Box
@@ -40,12 +41,13 @@ export default function Formations({ formations, onChange, onDelete }) {
         formations={formations}
         onChange={onChange}
         onDelete={onDelete}
+        onAdd={onAdd}
       />
     </>
   );
 }
 
-function FormationList({ formations, onChange, onDelete }) {
+function FormationList({ formations, onChange, onDelete, onAdd }) {
   const [DisplaySnackBar, setDisplaySnackBar] = useState(false);
 
   const handleDeleteFormationItem = (id) => {
@@ -75,6 +77,7 @@ function FormationList({ formations, onChange, onDelete }) {
             onDelete={handleDeleteFormationItem}
           />
         ))}
+        <AddField type="formations" onAdd={onAdd} />
         <Snackbar
           open={DisplaySnackBar}
           autoHideDuration={1000}

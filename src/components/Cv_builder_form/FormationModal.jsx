@@ -7,20 +7,25 @@ import { TextField } from "@mui/material";
 import ModalInput from "./modalInput";
 import SaveBtnModal from "./SaveBtnModal";
 
-
 export default function FormationModal({
-  formation,
+  formation = null,
   handleClose,
   open,
-  onChange,
+  onChange = null,
+  onAdd= null
 }) {
-  const [modalFormation, setModalFormation] = useState({ ...formation });
+  const [modalFormation, setModalFormation] = useState({
+    id: formation?.id || crypto.randomUUID(),
+    year_start: formation?.year_start || "",
+    year_end: formation?.year_end || "",
+    degree: formation?.degree || "",
+    university: formation?.university || "",
+  });
 
   const handleInputChange = (updatedModalFormation) => {
     setModalFormation((prev) => ({ ...prev, ...updatedModalFormation }));
   };
 
-  
   return (
     <Modal
       open={open}
@@ -90,6 +95,7 @@ export default function FormationModal({
           modalObj={modalFormation}
           id={modalFormation.id}
           handleClose={handleClose}
+          onAdd={onAdd}
         />
       </Box>
     </Modal>

@@ -149,6 +149,13 @@ export default function App() {
     }));
   };
 
+  const handleFormationAdd = (formation) => {
+    setResume((prev) => ({
+      ...prev,
+      formations: [...prev.formations, formation],
+    }));
+  };
+
   const handleExperienceChange = (updatedExperience, id) => {
     setResume((prev) => ({
       ...prev,
@@ -204,6 +211,7 @@ export default function App() {
               formations={resume.formations}
               onChange={handleFormationsChange}
               onDelete={handleFormationDelete}
+              onAdd={handleFormationAdd}
             />
             <Experiences
               experiences={resume.experiences}

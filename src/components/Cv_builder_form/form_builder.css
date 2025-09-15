@@ -49,3 +49,23 @@
   display: flex;
   gap: 1rem;
 }
+
+.add_item_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add_item {
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
