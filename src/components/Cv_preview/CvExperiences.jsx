@@ -1,5 +1,4 @@
 import Avatar from "@mui/material/Avatar";
-import AvatarDefault from "../../assets/img/avatar_default.jpg";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 

@@ -1,5 +1,5 @@
 import Avatar from "@mui/material/Avatar";
-import AvatarDefault from "../../assets/img/avatar_default.jpg";
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
@@ -55,9 +55,14 @@ function FormationItem({ formation }) {
           width: "20%",
         }}
       >
-        <Typography variant="body2" className="bold"> {formation.year_start}&nbsp;</Typography>
+        <Typography variant="body2" className="bold">
+          {" "}
+          {formation.year_start}&nbsp;
+        </Typography>
         {formation.year_end && (
-          <Typography variant="body2" className="bold">-&nbsp;{formation.year_end}</Typography>
+          <Typography variant="body2" className="bold">
+            -&nbsp;{formation.year_end}
+          </Typography>
         )}
       </Box>
       <Box
@@ -69,10 +74,12 @@ function FormationItem({ formation }) {
         }}
       >
         <Box className="cv_formation_item_details_degree">
-          <Typography variant="body2" className="bold">{formation.degree}</Typography>
+          <Typography variant="body2" className="bold">
+            {formation.degree}
+          </Typography>
         </Box>
         <Box className="cv_formation_item_details_university">
-        <Typography variant="body2">{formation.university}</Typography>
+          <Typography variant="body2">{formation.university}</Typography>
         </Box>
       </Box>
     </Box>

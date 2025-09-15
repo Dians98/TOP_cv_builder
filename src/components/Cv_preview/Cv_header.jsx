@@ -1,7 +1,7 @@
 import Avatar from "@mui/material/Avatar";
-import AvatarDefault from "../../assets/img/avatar_default.jpg";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import CvAvatar from "./CvAvatar";
 
 export default function Cv_header({ resume }) {
   return (
@@ -38,11 +38,7 @@ export default function Cv_header({ resume }) {
       </Box>
 
       <Box className="cv_header_avatar">
-        <Avatar
-          alt={resume.personal_details.full_name}
-          src={AvatarDefault}
-          sx={{ width: 150, height: 150 }}
-        />
+        <CvAvatar personal_details={resume.personal_details} />
       </Box>
     </Box>
     /* 
