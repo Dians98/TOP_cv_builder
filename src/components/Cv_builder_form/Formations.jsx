@@ -48,8 +48,8 @@ export default function Formations({ formations, onChange, onDelete }) {
 function FormationList({ formations, onChange, onDelete }) {
   const [DisplaySnackBar, setDisplaySnackBar] = useState(false);
 
-  const handleDeleteFormationItem = (index) => {
-    onDelete(index);
+  const handleDeleteFormationItem = (id) => {
+    onDelete(id);
     setDisplaySnackBar(true);
   };
 

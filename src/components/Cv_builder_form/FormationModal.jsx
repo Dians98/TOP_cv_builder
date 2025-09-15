@@ -87,7 +87,7 @@ export default function FormationModal({
         />
         <SaveBtnModal
           onChange={onChange}
-          modalFormation={modalFormation}
+          modalObj={modalFormation}
           id={modalFormation.id}
           handleClose={handleClose}
         />
