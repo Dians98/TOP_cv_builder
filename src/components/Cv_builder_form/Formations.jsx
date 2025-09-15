@@ -82,7 +82,7 @@ function FormationList({ formations, onChange, onDelete, onAdd }) {
           open={DisplaySnackBar}
           autoHideDuration={1000}
           onClose={handleHideSnackBar}
-          message="La formation a bien été suprimée"
+          message="Item successfully deleted"
         />
       </Box>
     </>

@@ -80,7 +80,7 @@ function ExperiencesList({ experiences, onDelete, onChange, onAdd }) {
           open={DisplaySnackBar}
           autoHideDuration={1000}
           onClose={handleHideSnackBar}
-          message="L'experience a bien été suprimée"
+          message="Item successfully deleted"
         />
       </Box>
     </>
