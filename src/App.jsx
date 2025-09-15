@@ -176,6 +176,13 @@ export default function App() {
     }));
   };
 
+  const handleExperienceAdd = (experience) => {
+    setResume((prev) => ({
+      ...prev,
+      experiences: [...prev.experiences, experience],
+    }));
+  };
+
   return (
     <>
       <Container maxWidth="lg">
@@ -217,6 +224,7 @@ export default function App() {
               experiences={resume.experiences}
               onDelete={handleExperienceDelete}
               onChange={handleExperienceChange}
+              onAdd={handleExperienceAdd}
             />
           </Box>
 

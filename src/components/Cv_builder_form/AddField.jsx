@@ -2,7 +2,9 @@ import { Box, Typography } from "@mui/material";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import FormationModal from "./FormationModal";
 import { useState } from "react";
-export default function AddField({ onAdd }) {
+import ExperienceModal from "./ExperienceModal";
+
+export default function AddField({ type, onAdd }) {
   const [openAddFieldModal, setOpenAddFieldModal] = useState(false);
 
   const handleOpenAddFieldModal = () => {
@@ -30,11 +32,21 @@ export default function AddField({ onAdd }) {
         </Typography>
       </Box>
 
-      <FormationModal
-        open={openAddFieldModal}
-        handleClose={handleCloseAddFieldModal}
-        onAdd={onAdd}
-      />
+      {type === "formations" && (
+        <FormationModal
+          open={openAddFieldModal}
+          handleClose={handleCloseAddFieldModal}
+          onAdd={onAdd}
+        />
+      )}
+
+      {type === "experiences" && (
+        <ExperienceModal
+          open={openAddFieldModal}
+          handleClose={handleCloseAddFieldModal}
+          onAdd={onAdd}
+        />
+      )}
     </Box>
   );
 }

@@ -6,8 +6,21 @@ import { TextField } from "@mui/material";
 import ModalInput from "./modalInput";
 import SaveBtnModal from "./SaveBtnModal";
 
-export default function ExperienceModal({ open, close, experience, onChange }) {
-  const [modalExperience, setModalExperience] = useState({ ...experience });
+export default function ExperienceModal({
+  experience = null,
+  handleClose,
+  open,
+  onChange = null,
+  onAdd = null,
+}) {
+  const [modalExperience, setModalExperience] = useState({
+    id: experience?.id || crypto.randomUUID(),
+    year_start: experience?.year_start || "",
+    year_end: experience?.year_end || "",
+    profil: experience?.profil || "",
+    company: experience?.company || "",
+    description: experience?.description || "",
+  });
 
   const handleExperienceInputChange = (updatedModalExperience) => {
     setModalExperience((prev) => ({
@@ -20,7 +33,7 @@ export default function ExperienceModal({ open, close, experience, onChange }) {
     <>
       <Modal
         open={open}
-        onClose={close}
+        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -85,7 +98,8 @@ export default function ExperienceModal({ open, close, experience, onChange }) {
               id={modalExperience.id}
               onChange={onChange}
               modalObj={modalExperience}
-              handleClose={close}
+              handleClose={handleClose}
+              onAdd={onAdd}
             />
           </Box>
         </Box>

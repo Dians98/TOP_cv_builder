@@ -29,4 +29,6 @@ body {
   min-height: 100vh;
 }
 
-
+.form_builder {
+  height: 100vh;
+}

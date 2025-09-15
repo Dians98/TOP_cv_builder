@@ -6,9 +6,9 @@ import SaveAsIcon from "@mui/icons-material/SaveAs";
 import { TextField } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ExperienceModal from "./ExperienceModal";
+import AddField from "./AddField";
 
-
-export default function Experiences({ experiences, onDelete, onChange }) {
+export default function Experiences({ experiences, onDelete, onChange, onAdd }) {
   return (
     <>
       <Box
@@ -39,12 +39,13 @@ export default function Experiences({ experiences, onDelete, onChange }) {
         experiences={experiences}
         onDelete={onDelete}
         onChange={onChange}
+        onAdd={onAdd}
       />
     </>
   );
 }
 
-function ExperiencesList({ experiences, onDelete, onChange }) {
+function ExperiencesList({ experiences, onDelete, onChange, onAdd }) {
   const [DisplaySnackBar, setDisplaySnackBar] = useState(false);
 
   const handleDeleteExperience = (id) => {
@@ -74,6 +75,7 @@ function ExperiencesList({ experiences, onDelete, onChange }) {
             onChange={onChange}
           />
         ))}
+        <AddField type="experiences" onAdd={onAdd} />
         <Snackbar
           open={DisplaySnackBar}
           autoHideDuration={1000}
@@ -124,7 +126,7 @@ function ExperienceItem({ experience, onDelete, onChange }) {
       </Box>
       <ExperienceModal
         open={openExperienceModal}
-        close={handleCloseExperienceModal}
+        handleClose={handleCloseExperienceModal}
         experience={experience}
         onChange={onChange}
       />
