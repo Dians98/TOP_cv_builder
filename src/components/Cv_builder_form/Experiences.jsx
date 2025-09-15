@@ -7,6 +7,7 @@ import { TextField } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ExperienceModal from "./ExperienceModal";
 
+
 export default function Experiences({ experiences, onDelete, onChange }) {
   return (
     <>
@@ -44,6 +45,17 @@ export default function Experiences({ experiences, onDelete, onChange }) {
 }
 
 function ExperiencesList({ experiences, onDelete, onChange }) {
+  const [DisplaySnackBar, setDisplaySnackBar] = useState(false);
+
+  const handleDeleteExperience = (id) => {
+    onDelete(id);
+    setDisplaySnackBar(true);
+  };
+
+  const handleHideSnackBar = () => {
+    setDisplaySnackBar(false);
+  };
+
   return (
     <>
       <Box
@@ -57,11 +69,17 @@ function ExperiencesList({ experiences, onDelete, onChange }) {
         {experiences.map((experience) => (
           <ExperienceItem
             experience={experience}
-            onDelete={onDelete}
+            onDelete={handleDeleteExperience}
             key={experience.id}
             onChange={onChange}
           />
         ))}
+        <Snackbar
+          open={DisplaySnackBar}
+          autoHideDuration={1000}
+          onClose={handleHideSnackBar}
+          message="L'experience a bien été suprimée"
+        />
       </Box>
     </>
   );
@@ -98,7 +116,6 @@ function ExperienceItem({ experience, onDelete, onChange }) {
           <DeleteOutlineOutlinedIcon
             className="iconColor"
             onClick={(e) => {
-              alert(experience.id);
               e.stopPropagation();
               onDelete(experience.id);
             }}
