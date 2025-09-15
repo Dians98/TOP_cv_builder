@@ -20,6 +20,7 @@ export default function FormationModal({
     setModalFormation((prev) => ({ ...prev, ...updatedModalFormation }));
   };
 
+  
   return (
     <Modal
       open={open}

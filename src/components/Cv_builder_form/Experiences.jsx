@@ -54,13 +54,12 @@ function ExperiencesList({ experiences, onDelete, onChange }) {
           gap: "0.5rem",
         }}
       >
-        {experiences.map((experience, index) => (
+        {experiences.map((experience) => (
           <ExperienceItem
             experience={experience}
             onDelete={onDelete}
             key={experience.id}
             onChange={onChange}
-            index={index}
           />
         ))}
       </Box>
