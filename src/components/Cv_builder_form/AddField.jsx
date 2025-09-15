@@ -15,7 +15,16 @@ export default function AddField({ onAdd }) {
   return (
     <Box className="add_item_container">
       <Box className="add_item" onClick={handleOpenAddFieldModal}>
-        <Typography variant="body2" sx={{}}>
+        <Typography
+          variant="body2"
+          sx={{
+            display: "flex",
+            alignContent: "center",
+            alignItems: "center",
+            gap: "0.25rem",
+            color: "#00E6BD",
+          }}
+        >
           <AddCircleOutlineOutlinedIcon />
           Ajouter
         </Typography>
