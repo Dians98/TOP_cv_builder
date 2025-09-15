@@ -6,7 +6,7 @@ import SaveAsIcon from "@mui/icons-material/SaveAs";
 import { TextField } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import SaveBtnModal from "./SaveBtnModal";
-import ModalInput from "./modalInput";
+import ModalInput from "./ModalInput";
 import FormationModal from "./FormationModal";
 import AddField from "./AddField";
 

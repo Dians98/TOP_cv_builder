@@ -3,7 +3,7 @@ import Input from "./Input/Input";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
 import { useState } from "react";
 import { TextField } from "@mui/material";
-import ModalInput from "./modalInput";
+import ModalInput from "./ModalInput";
 import SaveBtnModal from "./SaveBtnModal";
 
 export default function ExperienceModal({
