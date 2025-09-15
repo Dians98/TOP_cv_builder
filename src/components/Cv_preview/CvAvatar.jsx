@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function CvAvatar({ personal_details }) {
   const [imgSource, setImgSource] = useState(
-    "/public/avatar/avatar_default.jpg"
+    "/avatar/avatar_default.jpg"
   );
 
   const handleImgSourceChange = (source) => {
