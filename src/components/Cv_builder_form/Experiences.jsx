@@ -57,10 +57,10 @@ function ExperiencesList({ experiences, onDelete, onChange }) {
         {experiences.map((experience, index) => (
           <ExperienceItem
             experience={experience}
-            index={index}
             onDelete={onDelete}
-            key={index}
+            key={experience.id}
             onChange={onChange}
+            index={index}
           />
         ))}
       </Box>
@@ -99,8 +99,9 @@ function ExperienceItem({ experience, index, onDelete, onChange }) {
           <DeleteOutlineOutlinedIcon
             className="iconColor"
             onClick={(e) => {
+              alert(experience.id);
               e.stopPropagation();
-              onDelete(index);
+              onDelete(experience.id);
             }}
           />
         </Box>

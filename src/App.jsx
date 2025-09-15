@@ -13,7 +13,7 @@ import Experiences from "./components/Cv_builder_form/Experiences";
 export default function App() {
   /**Creation de l'objet resume par defaut */
   const [resume, setResume] = useState({
-    /**personal details sous forme d'objet */
+    /** Personal details */
     personal_details: {
       full_name: "Diano ANDRIANTSALAMA",
       position: "Junior Developer",
@@ -21,22 +21,26 @@ export default function App() {
       phone: "+230 55198539",
     },
     aPropos:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor. ",
-    /**formation sous forme de tableau car on va iterer */
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
+
+    /** Formations avec id unique */
     formations: [
       {
+        id: crypto.randomUUID(),
         year_start: "2021",
         year_end: "2022",
         degree: "Licence Professionnelle en Humanités Numériques",
         university: "Université Des Mascareignes – Pamplemousses - Mauritius",
       },
       {
+        id: crypto.randomUUID(),
         year_start: "2019",
         year_end: "2020",
         degree: "Licence en Informatique-Electronique",
         university: "Université Privée ACEEM – Antananarivo – Madagascar",
       },
       {
+        id: crypto.randomUUID(),
         year_start: "2016",
         year_end: "",
         degree: "Baccalauréat Série Scientifique",
@@ -44,30 +48,35 @@ export default function App() {
           "Collège la Lumière Internationale – Antananarivo – Madagascar",
       },
     ],
+
+    /** Experiences avec id unique */
     experiences: [
       {
+        id: crypto.randomUUID(),
         year_start: "2023",
         year_end: "Présent",
         profil: "Ingénieur logiciel",
         company: "ANGE TECHNOLOGY Ltd",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
+          "Ingénieur logicielLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
       },
       {
+        id: crypto.randomUUID(),
         year_start: "2022",
         year_end: "2023",
         profil: "Analyste-développeur",
         company: "AEROW ECM WORLD Ltd",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
+          "Analyste-développeur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
       },
       {
+        id: crypto.randomUUID(),
         year_start: "2022",
         year_end: "",
         profil: "Stagiaire",
         company: "AEROW ECM WORLD Ltd",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
+          "Stagiaire Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a tellus dui. Aenean quis mattis leo. Donec in rutrum ipsum, eget tempor eros. Pellentesque at velit vitae quam pellentesque vestibulum in nec tortor.",
       },
     ],
   });
@@ -153,10 +162,10 @@ export default function App() {
     }));
   };
 
-  const handleExperienceDelete = (index) => {
+  const handleExperienceDelete = (id) => {
     setResume((prev) => ({
       ...prev,
-      experiences: prev.experiences.filter((_, i) => i != index),
+      experiences: prev.experiences.filter((experience) => experience.id != id),
     }));
   };
 

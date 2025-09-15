@@ -21,7 +21,6 @@ export default function ExperienceModal({
       ...updatedModalExperience,
     }));
   };
-
   return (
     <>
       <Modal
