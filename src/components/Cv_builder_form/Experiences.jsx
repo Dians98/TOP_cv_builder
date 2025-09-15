@@ -68,7 +68,7 @@ function ExperiencesList({ experiences, onDelete, onChange }) {
   );
 }
 
-function ExperienceItem({ experience, index, onDelete, onChange }) {
+function ExperienceItem({ experience, onDelete, onChange }) {
   const [openExperienceModal, setOpenExperienceModal] = useState(false);
 
   const handleOpenExperienceModal = () => {
@@ -111,7 +111,6 @@ function ExperienceItem({ experience, index, onDelete, onChange }) {
         close={handleCloseExperienceModal}
         experience={experience}
         onChange={onChange}
-        index={index}
       />
     </>
   );

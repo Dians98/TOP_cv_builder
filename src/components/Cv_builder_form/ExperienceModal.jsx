@@ -6,13 +6,7 @@ import { TextField } from "@mui/material";
 import ModalInput from "./modalInput";
 import SaveBtnModal from "./SaveBtnModal";
 
-export default function ExperienceModal({
-  open,
-  close,
-  experience,
-  onChange,
-  index,
-}) {
+export default function ExperienceModal({ open, close, experience, onChange }) {
   const [modalExperience, setModalExperience] = useState({ ...experience });
 
   const handleExperienceInputChange = (updatedModalExperience) => {
@@ -21,6 +15,7 @@ export default function ExperienceModal({
       ...updatedModalExperience,
     }));
   };
+
   return (
     <>
       <Modal
@@ -87,9 +82,9 @@ export default function ExperienceModal({
           </Box>
           <Box>
             <SaveBtnModal
+              id={modalExperience.id}
               onChange={onChange}
               modalObj={modalExperience}
-              index={index}
               handleClose={close}
             />
           </Box>

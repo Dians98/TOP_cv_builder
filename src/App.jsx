@@ -149,11 +149,11 @@ export default function App() {
     }));
   };
 
-  const handleExperienceChange = (updatedExperience, index) => {
+  const handleExperienceChange = (updatedExperience, id) => {
     setResume((prev) => ({
       ...prev,
       experiences: prev.experiences.map((experience, i) => {
-        if (index == i) {
+        if (experience.id == id) {
           return updatedExperience;
         } else {
           return experience;

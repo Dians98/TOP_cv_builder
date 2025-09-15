@@ -1,11 +1,6 @@
 import { Button } from "@mui/material";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
-export default function SaveBtnModal({
-  onChange,
-  modalObj,
-  index,
-  handleClose,
-}) {
+export default function SaveBtnModal({ onChange, modalObj, handleClose, id }) {
   return (
     <Button
       variant="outlined"
@@ -17,7 +12,7 @@ export default function SaveBtnModal({
         gap: "0.25rem",
       }}
       onClick={() => {
-        onChange(modalObj, index);
+        onChange(modalObj, id);
         handleClose();
       }}
     >
