@@ -7,10 +7,10 @@ import { pdf } from "@react-pdf/renderer";
 export default function CvPdf({ resume }) {
   const handleOpenPDF = async () => {
     /**UN BLOB (Binary Large Object) est un fichier virtuel en mémoire */
-    const pdf = await pdf(<Pdf resume={resume} />).toBlob();
+    const pdf_blob = await pdf(<Pdf resume={resume} />).toBlob();
 
     // Crée une URL pointant vers le blob qu'on a créé
-    const url = URL.createObjectURL(pdf);
+    const url = URL.createObjectURL(pdf_blob);
 
     window.open(url, "_blank");
   };

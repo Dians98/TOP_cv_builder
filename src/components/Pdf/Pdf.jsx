@@ -1,38 +1,40 @@
 // PDFCV.jsx
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import {
+  Document,
+  Page,
+  Text,
+  View,
+  StyleSheet,
+  Image,
+} from "@react-pdf/renderer";
 
 export default function Pdf({ resume }) {
   const styles = StyleSheet.create({
     page: {
       padding: 40,
-      fontSize: 12,
+      fontSize: "14px",
       lineHeight: 1.5,
-      fontFamily: "Helvetica",
     },
-    section: {
-      marginBottom: 15,
+    cv_header: {
+      flexDirection: "row", // met les enfants côte à côte
+      justifyContent: "flex-end",
+      alignItems: "center",
     },
-    name: {
-      fontSize: 24,
+    cv_header_infos: {
+      flex: 1, // prend tout l'espace restant
+      justifyContent: "center", // centre verticalement si besoin
+      alignItems: "flex-end",
+      paddingRight: 10, // aligne le texte à droite
+    },
+    cv_header_infos_txt: {
       fontWeight: "bold",
-      marginBottom: 5,
+      textAlign: "right", // espace entre chaque ligne
     },
-    title: {
-      fontSize: 16,
-      fontWeight: "bold",
-      marginBottom: 5,
-    },
-    text: {
-      marginBottom: 3,
-    },
-    skills: {
-      display: "flex",
+    tbc: {
       flexDirection: "row",
-      flexWrap: "wrap",
-      marginTop: 5,
-    },
-    skillItem: {
-      marginRight: 10,
+      justifyContent: "center",
+      margin: "5",
+      fontWeight: "BOLD",
     },
   });
 
@@ -40,45 +42,35 @@ export default function Pdf({ resume }) {
     <>
       <Document>
         <Page size="A4" style={styles.page}>
-          {/* Informations personnelles */}
-          <View style={styles.section}>
-            <Text style={styles.name}>{resume.personal_details.full_name}</Text>
-            <Text style={styles.text}>{resume.personal_details.position}</Text>
-            <Text style={styles.text}>{resume.personal_details.email}</Text>
-            <Text style={styles.text}>{resume.personal_details.phone}</Text>
-          </View>
-
-          {/* À propos */}
-          <View style={styles.section}>
-            <Text style={styles.title}>À propos</Text>
-            <Text>{resume.aPropos}</Text>
-          </View>
-
-          {/* Expériences */}
-          {resume.experiences?.length > 0 && (
-            <View style={styles.section}>
-              <Text style={styles.title}>Expériences</Text>
-              {resume.experiences.map((exp, i) => (
-                <Text key={i} style={styles.text}>
-                  {exp.role} - {exp.company} ({exp.start} - {exp.end})
-                </Text>
-              ))}
+          <View style={styles.cv_header}>
+            <View style={styles.cv_header_infos}>
+              <Text style={styles.cv_header_infos_txt}>
+                {resume.personal_details.full_name}
+              </Text>
+              <Text style={styles.cv_header_infos_txt}>
+                {resume.personal_details.email}
+              </Text>
+              <Text style={styles.cv_header_infos_txt}>
+                {resume.personal_details.phone}
+              </Text>
+              <Text style={styles.cv_header_infos_txt}>
+                {resume.personal_details.position}
+              </Text>
             </View>
-          )}
-
-          {/* Compétences */}
-          {resume.skills?.length > 0 && (
-            <View style={styles.section}>
-              <Text style={styles.title}>Compétences</Text>
-              <View style={styles.skills}>
-                {resume.skills.map((skill, i) => (
-                  <Text key={i} style={styles.skillItem}>
-                    {skill}
-                  </Text>
-                ))}
-              </View>
+            <View style={styles.cv_header_img}>
+              <Image
+                src={window.location.origin + "/avatar/avatar_default.jpg"}
+                style={{
+                  width: 120,
+                  height: 120,
+                  borderRadius: 60,
+                }}
+              />
             </View>
-          )}
+          </View>
+          <View>
+            <Text style={styles.tbc}>TO BE CONTINUED</Text>
+          </View>
         </Page>
       </Document>
     </>
