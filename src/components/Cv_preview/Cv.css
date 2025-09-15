@@ -52,3 +52,20 @@
   color: white;
   font-size: 2rem; /* taille de l’icône */
 }
+
+.download_pdf {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 2rem;
+  background-color: #00e6bd;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}

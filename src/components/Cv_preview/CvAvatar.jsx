@@ -22,6 +22,7 @@ export default function CvAvatar({ personal_details }) {
       <PhotoUploader handleChange={handleImgSourceChange} />
     </Box>
   );
+  
 }
 
 function PhotoUploader({ handleChange }) {

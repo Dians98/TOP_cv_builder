@@ -2,45 +2,57 @@ import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import CvAvatar from "./CvAvatar";
+import CvPdf from "./CvPdf";
 
 export default function Cv_header({ resume }) {
   return (
-    <Box
-      className="cv_header"
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        gap: "1rem",
-      }}
-    >
+    <>
       <Box
-        className="cv_header_personal_details"
         sx={{
-          display: "flex",
-          width: "100%",
-          flexDirection: "column",
-          gap: "0.35rem",
-          textAlign: "end",
+          textAlign: "center",
+          cursor: "pointer",
         }}
       >
-        <Typography variant="body" fontWeight="bold">
-          {resume.personal_details.full_name}
-        </Typography>
-        <Typography variant="body1" fontWeight="bold">
-          {resume.personal_details.email}
-        </Typography>
-        <Typography variant="body1" fontWeight="bold">
-          {resume.personal_details.phone}
-        </Typography>
-        <Typography variant="body1" fontWeight="bold">
-          {resume.personal_details.position}
-        </Typography>
+        <CvPdf resume={resume} />
       </Box>
+      <Box
+        className="cv_header"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1rem",
+        }}
+      >
+        <Box
+          className="cv_header_personal_details"
+          sx={{
+            display: "flex",
+            width: "100%",
+            flexDirection: "column",
+            gap: "0.35rem",
+            textAlign: "end",
+          }}
+        >
+          <Typography variant="body" fontWeight="bold">
+            {resume.personal_details.full_name}
+          </Typography>
+          <Typography variant="body1" fontWeight="bold">
+            {resume.personal_details.email}
+          </Typography>
+          <Typography variant="body1" fontWeight="bold">
+            {resume.personal_details.phone}
+          </Typography>
+          <Typography variant="body1" fontWeight="bold">
+            {resume.personal_details.position}
+          </Typography>
+        </Box>
 
-      <Box className="cv_header_avatar">
-        <CvAvatar personal_details={resume.personal_details} />
+        <Box className="cv_header_avatar">
+          <CvAvatar personal_details={resume.personal_details} />
+        </Box>
       </Box>
-    </Box>
+    </>
+
     /* 
         <div className="cv_header">
             <div className="cv_header_personal_details">
