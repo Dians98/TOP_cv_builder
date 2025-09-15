@@ -3,7 +3,7 @@ import Cv_header from "./components/Cv_preview/Cv_header";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import CvFormations from "./components/Cv_preview/CvFormations";
-import PersonalDetails from "./components/cv_builder_form/PersonalDetails";
+import PersonalDetails from "./components/Cv_builder_form/PersonalDetails";
 import Formations from "./components/Cv_builder_form/Formations";
 import CvApropos from "./components/Cv_preview/CvAPropos";
 import APropos from "./components/Cv_builder_form/APropos";
